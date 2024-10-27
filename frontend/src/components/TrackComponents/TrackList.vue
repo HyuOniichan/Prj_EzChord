@@ -3,17 +3,14 @@ import axios from 'axios';
 import TrackCard from './TrackCard.vue';
 import { ref } from 'vue';
 
-const songList = ref([])
+const trackList = ref([])
 
 function getSongs() {
     axios.get('http://localhost:4000/songs')
-        .then(res => {
-            console.log(res)
-            songList.value = res
-        })
+        .then(res => { trackList.value = res })
         .catch(error => console.log(error))
 
-    console.log(songList.value)
+    console.log(trackList.value)
 }
 getSongs()
 
@@ -21,8 +18,8 @@ getSongs()
 
 <template>
     <div class="flex flex-row flex-wrap gap-5 m-5">
-        <div v-for="song in songList.data">
-            <TrackCard :song />
+        <div v-for="track in trackList.data">
+            <TrackCard :track />
         </div>
     </div>
 </template>

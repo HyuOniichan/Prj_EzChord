@@ -5,14 +5,14 @@ class songsController {
     show(req, res) {
         songsData.find({})
             .then(data => res.json(data))
-            .catch(err => res.json(err)) 
+            .catch(err => res.json(err))
     }
-    
+
     // [Get] /songs/:id
     showOne(req, res) {
-        songsData.find({ _id: req.body._id })
+        songsData.findOne({ _id: req.params.id })
             .then(data => res.json(data))
-            .catch(err => res.json(err)) 
+            .catch(err => res.json(err))
     }
 
 }
