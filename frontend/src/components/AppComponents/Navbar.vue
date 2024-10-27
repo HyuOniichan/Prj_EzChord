@@ -2,10 +2,18 @@
 import { ref } from 'vue';
 import { RouterLink } from 'vue-router';
 
-const displayUserMenu = ref(false); 
+const displayUserMenu = ref(false);
 
 function toggleUserMenu() {
-    displayUserMenu.value = !displayUserMenu.value; 
+    displayUserMenu.value = !displayUserMenu.value;
+}
+
+const paths = ['home', 'tracks']; 
+const currentPageId = ref(0); 
+
+function changeCurrentPage(id) {
+    currentPageId.value = id; 
+    console.log(id); 
 }
 
 </script>
@@ -52,10 +60,17 @@ function toggleUserMenu() {
                         <div class="hidden sm:ml-6 sm:block">
                             <div class="flex space-x-4">
                                 <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                                <RouterLink to="/" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white"
-                                    aria-current="page">Home</RouterLink>
-                                <RouterLink to="/tracks"
-                                    class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Tracks</RouterLink>
+                                <div v-for="(path, index) in paths">
+                                    <RouterLink 
+                                        :to="'/' + (path == 'home'? '' : path)" 
+                                        class="rounded-md px-3 py-2 text-sm font-medium capitalize"
+                                        :class="(currentPageId === index)? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'"
+                                        @click="changeCurrentPage(index)"
+                                    >
+                                        {{ path }}
+                                        {{ console.log(currentPageId) }}
+                                    </RouterLink>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -75,17 +90,14 @@ function toggleUserMenu() {
                         <!-- Profile dropdown -->
                         <div class="relative ml-3">
                             <div>
-                                <button 
-                                    type="button"
+                                <button type="button"
                                     class="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                                     id="user-menu-button" aria-expanded="false" aria-haspopup="true"
-                                    @click="toggleUserMenu()"
-                                >
+                                    @click="toggleUserMenu()">
                                     <span class="absolute -inset-1.5"></span>
                                     <span class="sr-only">Open user menu</span>
                                     <img class="h-8 w-8 rounded-full"
-                                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                                        alt="">
+                                        src="https://avatars.githubusercontent.com/u/119403471" alt="">
                                 </button>
                             </div>
 
@@ -99,19 +111,16 @@ function toggleUserMenu() {
                                 From: "transform opacity-100 scale-100"
                                 To: "transform opacity-0 scale-95"
                             -->
-                            <div 
-                                class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
-                                v-if="displayUserMenu"
-                                role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button"
-                                tabindex="-1"
-                            >
+                            <div class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                                v-if="displayUserMenu" role="menu" aria-orientation="vertical"
+                                aria-labelledby="user-menu-button" tabindex="-1">
                                 <!-- Active: "bg-gray-100", Not Active: "" -->
-                                <RouterLink to="/" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
-                                    id="user-menu-item-0">Your Profile</RouterLink>
-                                <RouterLink to="/" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
-                                    id="user-menu-item-1">Settings</RouterLink>
-                                <RouterLink to="/" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
-                                    id="user-menu-item-2">Sign out</RouterLink>
+                                <RouterLink to="/" class="block px-4 py-2 text-sm text-gray-700" role="menuitem"
+                                    tabindex="-1" id="user-menu-item-0">Your Profile</RouterLink>
+                                <RouterLink to="/" class="block px-4 py-2 text-sm text-gray-700" role="menuitem"
+                                    tabindex="-1" id="user-menu-item-1">Settings</RouterLink>
+                                <RouterLink to="/" class="block px-4 py-2 text-sm text-gray-700" role="menuitem"
+                                    tabindex="-1" id="user-menu-item-2">Sign out</RouterLink>
                             </div>
                         </div>
                     </div>
@@ -125,11 +134,14 @@ function toggleUserMenu() {
                     <RouterLink to="/" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white"
                         aria-current="page">Home</RouterLink>
                     <RouterLink to="/"
-                        class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Team</RouterLink>
+                        class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">
+                        Team</RouterLink>
                     <RouterLink to="/"
-                        class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Projects</RouterLink>
+                        class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">
+                        Projects</RouterLink>
                     <RouterLink to="/"
-                        class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Calendar</RouterLink>
+                        class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">
+                        Calendar</RouterLink>
                 </div>
             </div>
         </nav>
