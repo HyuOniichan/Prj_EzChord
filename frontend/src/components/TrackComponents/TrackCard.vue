@@ -11,7 +11,7 @@ const props = defineProps({
 
     <div class="flex flex-row border border-gray-200 rounded-lg shadow p-4">
         <img class="object-cover rounded-lg w-48 h-48" :src="props.track.image" alt="image">
-        <div class="flex flex-col max-w-60 justify-between ps-4">
+        <div class="flex flex-col w-60 justify-between ps-4">
             <div>
                 <h2 class="text-2xl font-bold text-gray-900 dark:text-white">
                     {{ props.track.title }}
