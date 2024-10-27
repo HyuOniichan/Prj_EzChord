@@ -25,11 +25,11 @@ function changeSlide(auto) {
 
 <template>
     <!-- Carousel wrapper -->
-    <div class="relative w-full" data-carousel="slide">
+    <div class="relative w-full me-2" data-carousel="slide">
         <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
             <div class="duration-700 ease-in-out" v-for="(imgLink, index) in imgLinks">
                 <img :src="imgLink"
-                    class="absolute block w-11/12 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 right-1/2"
+                    class="absolute w-full object-cover block -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 right-1/2"
                     v-if="(index == currentSlide)" alt="...">
             </div>
         </div>
@@ -40,7 +40,7 @@ function changeSlide(auto) {
         </div>
         <!-- Slider controls -->
         <button type="button"
-            class="absolute top-0 start-14 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+            class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
             @click="changeSlide(false)">
             <span
                 class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
@@ -53,7 +53,7 @@ function changeSlide(auto) {
             </span>
         </button>
         <button type="button"
-            class="absolute top-0 end-14 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+            class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
             @click="changeSlide(true)">
             <span
                 class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
