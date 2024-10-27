@@ -8,7 +8,7 @@ const titles = ['popular', 'recent', 'favourite'];
 </script>
 
 <template>
-	<main class="flex flex-col pt-4 pe-10 bg-slate-200">
+	<main class="flex flex-col gap-5 pt-4 px-10 bg-slate-100">
 		<div class="flex flex-row">
 			<HomeSlider />
 			<HomeUserCard />
