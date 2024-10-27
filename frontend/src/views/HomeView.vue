@@ -1,7 +1,7 @@
 <script setup>
-import HomeSlider from '@/components/HomeSlider.vue';
-import HomeUserCard from '@/components/HomeUserCard.vue';
-import HomeSection from '@/components/HomeSection.vue';
+import HomeSlider from '@/components/HomeComponents/HomeSlider.vue';
+import HomeUserCard from '@/components/HomeComponents/HomeUserCard.vue';
+import HomeSection from '@/components/HomeComponents/HomeSection.vue';
 
 const titles = ['popular', 'recent', 'favourite']; 
 

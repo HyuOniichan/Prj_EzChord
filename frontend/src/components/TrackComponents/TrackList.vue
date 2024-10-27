@@ -1,6 +1,6 @@
 <script setup>
 import axios from 'axios';
-import SongCard from './SongCard.vue';
+import TrackCard from './TrackCard.vue';
 import { ref } from 'vue';
 
 const songList = ref([])
@@ -22,7 +22,7 @@ getSongs()
 <template>
     <div class="flex flex-row flex-wrap gap-5 m-5">
         <div v-for="song in songList.data">
-            <SongCard :song />
+            <TrackCard :song />
         </div>
     </div>
 </template>
