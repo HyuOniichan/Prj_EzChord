@@ -6,7 +6,7 @@ const playlistsSchema = new Schema({
     title: { type: String },
     description: { type: String },
     image: { type: String },
-    tracks: [{ type: Schema.Types.ObjectId, ref: 'Song' }], 
+    tracks: [{ type: Schema.Types.ObjectId, ref: 'Track' }], 
 }, {
     timestamps: true
 })

@@ -1,20 +1,20 @@
 const playlistsData = require('../models/playlistsModel');
 
-class songsController {
-    // [GET] /songs
+class playlistsController {
+    // [GET] /playlists
     show(req, res) {
-        playlistsData.find({})
+        playlistsData.find({}).populate('tracks')
             .then(data => res.json(data))
             .catch(err => res.json(err))
     }
 
-    // [Get] /songs/:id
+    // [Get] /playlists/:id
     showOne(req, res) {
-        playlistsData.findOne({ _id: req.params.id })
+        playlistsData.findOne({ _id: req.params.id }).populate('tracks')
             .then(data => res.json(data))
             .catch(err => res.json(err))
     }
 
 }
 
-module.exports = new songsController(); 
+module.exports = new playlistsController(); 
