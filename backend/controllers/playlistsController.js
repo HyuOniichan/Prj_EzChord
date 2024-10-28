@@ -1,16 +1,16 @@
-const songsData = require('../models/songsModel');
+const playlistsData = require('../models/playlistsModel');
 
 class songsController {
     // [GET] /songs
     show(req, res) {
-        songsData.find({})
+        playlistsData.find({})
             .then(data => res.json(data))
             .catch(err => res.json(err))
     }
 
     // [Get] /songs/:id
     showOne(req, res) {
-        songsData.findOne({ _id: req.params.id })
+        playlistsData.findOne({ _id: req.params.id })
             .then(data => res.json(data))
             .catch(err => res.json(err))
     }

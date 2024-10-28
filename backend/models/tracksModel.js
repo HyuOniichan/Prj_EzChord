@@ -6,7 +6,7 @@ const referSchema = new Schema({
     source: { type: String },
 })
 
-const songsSchema = new Schema({
+const tracksSchema = new Schema({
     title: { type: String, required: true },
     description: { type: String },
     image: { type: String },
@@ -17,4 +17,4 @@ const songsSchema = new Schema({
     timestamps: true
 })
 
-module.exports = mongoose.model('Song', songsSchema);
+module.exports = mongoose.model('Track', tracksSchema);
