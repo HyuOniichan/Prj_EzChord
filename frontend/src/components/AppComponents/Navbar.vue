@@ -9,7 +9,7 @@ function toggleUserMenu() {
     displayUserMenu.value = !displayUserMenu.value;
 }
 
-const paths = ['home', 'tracks']; 
+const paths = ['home', 'tracks', 'playlists']; 
 const currentPageId = ref(0); 
 
 function changeCurrentPage(id) {
