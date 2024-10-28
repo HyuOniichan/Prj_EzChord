@@ -6,7 +6,7 @@ import { ref } from 'vue';
 const trackList = ref([])
 
 function getSongs() {
-    axios.get('http://localhost:4000/songs')
+    axios.get('http://localhost:4000/tracks')
         .then(res => { trackList.value = res })
         .catch(error => console.log(error))
 

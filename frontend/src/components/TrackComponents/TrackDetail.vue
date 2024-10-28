@@ -12,7 +12,7 @@ const trackId = route.params.id;
 const track = ref({});
 
 function getSong() {
-    axios.get(`http://localhost:4000/songs/${trackId}`)
+    axios.get(`http://localhost:4000/tracks/${trackId}`)
         .then(res => {
             track.value = res
         })
