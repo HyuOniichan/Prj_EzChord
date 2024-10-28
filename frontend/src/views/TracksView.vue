@@ -3,5 +3,7 @@
 </script>
 
 <template>
-    <TrackList /> 
+    <div class="pt-1">
+        <TrackList /> 
+    </div>
 </template>

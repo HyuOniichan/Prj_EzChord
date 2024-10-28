@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue';
 import { RouterLink } from 'vue-router';
+import Logo from '../icons/Logo.vue';
 
 const displayUserMenu = ref(false);
 
@@ -19,7 +20,7 @@ function changeCurrentPage(id) {
 </script>
 
 <template>
-    <header>
+    <header class="fixed top-0 inset-x-0 z-50">
         <nav class="bg-gray-800">
             <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
                 <div class="relative flex h-16 items-center justify-between">
@@ -53,9 +54,7 @@ function changeCurrentPage(id) {
                     </div>
                     <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                         <div class="flex flex-shrink-0 items-center">
-                            <img class="h-8 w-auto"
-                                src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=500"
-                                alt="Your Company">
+                            <Logo />
                         </div>
                         <div class="hidden sm:ml-6 sm:block">
                             <div class="flex space-x-4">
@@ -68,7 +67,6 @@ function changeCurrentPage(id) {
                                         @click="changeCurrentPage(index)"
                                     >
                                         {{ path }}
-                                        {{ console.log(currentPageId) }}
                                     </RouterLink>
                                 </div>
                             </div>
