@@ -17,7 +17,7 @@ getSongs()
 </script>
 
 <template>
-    <div class="flex flex-row flex-wrap gap-10 m-5">
+    <div class="flex flex-row flex-wrap gap-5 m-5">
         <div v-for="track in trackList.data">
             <TrackCard :track />
         </div>
