@@ -5,6 +5,7 @@ import { useRoute } from 'vue-router';
 
 import IconAddBox from '../icons/IconAddBox.vue';
 import PlaylistDetailTracks from './PlaylistDetailTracks.vue';
+import AppNavBackBtn from '../AppComponents/AppNavBackBtn.vue';
 
 const route = useRoute();
 const playlistId = route.params.id;
@@ -26,6 +27,8 @@ console.log(playlist.value);
 
 <template>
     <div>
+
+        <AppNavBackBtn :backto="'/playlists'" />
 
         <div class="flex flex-row p-8">
             <img class="object-cover rounded-2xl w-60 h-60" :src="playlist.data ? playlist.data.image : ''" alt="image">

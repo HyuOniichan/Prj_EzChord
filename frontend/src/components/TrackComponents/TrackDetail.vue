@@ -6,6 +6,7 @@ import { useRoute } from 'vue-router';
 import IconAddBox from '../icons/IconAddBox.vue';
 import IconFavorite from '../icons/IconFavorite.vue';
 import IconMusicNote from '../icons/IconMusicNote.vue';
+import AppNavBackBtn from '../AppComponents/AppNavBackBtn.vue';
 
 const route = useRoute();
 const trackId = route.params.id;
@@ -43,6 +44,8 @@ function getRefer(textRefer) {
 
 <template>
     <div>
+
+        <AppNavBackBtn :backto="'/tracks'" />
 
         <div class="flex flex-row p-8">
             <img class="object-cover rounded-2xl w-60 h-60" :src="track.data ? track.data.image : ''" alt="image">
